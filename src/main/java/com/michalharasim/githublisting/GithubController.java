@@ -31,9 +31,7 @@ public class GithubController {
     }
 
     @RequestMapping("/users/{username}/repos")
-    public ResponseEntity<?> getAllRepos(@PathVariable String username,                                          @RequestHeader("Accept") String header) throws IOException {
-        System.out.println(username);
-        System.out.println(header);
+    public ResponseEntity<?> getAllRepos(@PathVariable String username,@RequestHeader("Accept") String header) throws IOException {
         if (header.contains(MediaType.APPLICATION_JSON_VALUE)) {
             ArrayList<GithubRepository> listOfRepositories = githubService.getRepositories(username);
             if (listOfRepositories == null) {
@@ -47,7 +45,7 @@ public class GithubController {
             String jsonResponse = objectMapper.writeValueAsString(errorResponse);
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).contentType(MediaType.APPLICATION_JSON).body(jsonResponse);
         } else {
-            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Unknown error" + header);
+            ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Unknown error occured. - " + header);
             String jsonResponse = objectMapper.writeValueAsString(errorResponse);
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).contentType(MediaType.APPLICATION_JSON).body(jsonResponse);
         }
