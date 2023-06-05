@@ -1,13 +1,20 @@
 package com.michalharasim.githublisting.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class GithubRepository {
 
     private String repositoryName;
     private String ownerLogin;
-    private List<GithubBranch> githubBranches = new ArrayList<>();
+    private List<GithubBranch> githubBranches;
 
     public GithubRepository(String repositoryName, String ownerLogin, List<GithubBranch> githubBranches) {
         this.repositoryName = repositoryName;
@@ -15,27 +22,4 @@ public class GithubRepository {
         this.githubBranches = githubBranches;
     }
 
-    public String getRepositoryName() {
-        return repositoryName;
-    }
-
-    public void setRepositoryName(String repositoryName) {
-        this.repositoryName = repositoryName;
-    }
-
-    public String getOwnerLogin() {
-        return ownerLogin;
-    }
-
-    public void setOwnerLogin(String ownerLogin) {
-        this.ownerLogin = ownerLogin;
-    }
-
-    public List<GithubBranch> getGithubBranches() {
-        return githubBranches;
-    }
-
-    public void setGithubBranches(List<GithubBranch> githubBranches) {
-        this.githubBranches = githubBranches;
-    }
 }
