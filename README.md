@@ -35,4 +35,8 @@ To retrieve repositories from user's profile, send a GET request to the followin
 ```
 GET localhost:8080/users/{username}/repos
 ```
+or use:
+```
+$ curl -H "Accept: application/json" http://localhost:8080/users/{username}/repos
+```
 Replace {username} with the username of the profile you want to scan repositories from.
