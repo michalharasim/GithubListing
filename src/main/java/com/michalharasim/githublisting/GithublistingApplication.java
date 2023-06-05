@@ -8,7 +8,6 @@ public class GithublistingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GithublistingApplication.class, args);
-		System.out.println("siema");
 	}
 
 }
