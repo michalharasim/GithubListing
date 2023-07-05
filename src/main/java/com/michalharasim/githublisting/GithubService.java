@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.michalharasim.githublisting.model.GithubBranch;
 import com.michalharasim.githublisting.model.GithubRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -19,7 +20,8 @@ import java.util.ArrayList;
 public class GithubService {
 
     private boolean error;
-    private final Gson gson = new Gson();
+    @Autowired
+    private Gson gson;
     private static final String address = "https://api.github.com";
     public ArrayList<GithubRepository> getRepositories(String username) {
         try {
