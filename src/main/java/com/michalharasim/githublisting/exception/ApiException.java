@@ -1,4 +1,4 @@
-package com.michalharasim.githublisting.model;
+package com.michalharasim.githublisting.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ErrorResponse {
+public class ApiException {
     private int status;
     private String message;
 }
