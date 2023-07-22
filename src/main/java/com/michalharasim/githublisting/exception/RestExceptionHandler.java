@@ -23,5 +23,10 @@ public class RestExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
+    public ResponseEntity<ApiException> handleApiRequestException(ApiRequestException e) {
+        ApiException errorResponse = new ApiException(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 
 }

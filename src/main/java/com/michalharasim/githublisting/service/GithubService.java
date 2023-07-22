@@ -2,6 +2,7 @@ package com.michalharasim.githublisting.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.michalharasim.githublisting.exception.ApiRequestException;
 import com.michalharasim.githublisting.exception.UserNotFoundException;
 import com.michalharasim.githublisting.exception.XMLAsHeaderException;
 import com.michalharasim.githublisting.model.GithubBranch;
@@ -51,7 +52,7 @@ public class GithubService {
                     return allRepositories;
                 }
             } catch (IOException e) {
-                System.out.println(e.getMessage());
+                throw new ApiRequestException();
             }
         }
         return null;
