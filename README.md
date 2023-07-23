@@ -31,7 +31,7 @@ $ mvn spring-boot:run
 ```
 
 Server is now running.
-To retrieve repositories from user's profile, send a GET request to the following endpoint:
+To retrieve repositories from user's profile, send a GET request to the following endpoint preferably with Accept: application/json header:
 ```
 GET localhost:8080/users/{username}/repos
 ```
