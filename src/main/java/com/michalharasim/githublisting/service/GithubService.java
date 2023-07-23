@@ -38,7 +38,6 @@ public class GithubService {
                 String url = address + "/users/" + username + "/repos";
                 String repoResponse = readSite(url);
                 if (repoResponse == null) {
-                    System.out.println("3");
                     throw new UserNotFoundException();
                 }
                 JsonNode jsonNode = objectMapper.readTree(repoResponse);
@@ -84,7 +83,6 @@ public class GithubService {
                     .retrieve()
                     .onStatus(HttpStatus.NOT_FOUND::equals, clientResponse -> {
                         if (clientResponse.statusCode() == HttpStatus.NOT_FOUND) {
-                            System.out.println("8");
                             throw new UserNotFoundException();
                         }
                         return Mono.empty(); // mono.empty() - no exception is thrown, we continue with the application
