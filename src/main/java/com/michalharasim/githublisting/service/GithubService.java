@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 @Service
 public class GithubService {
+
     private WebClient webClient;
     private ObjectMapper objectMapper;
     private static final String address = "https://api.github.com";
@@ -90,7 +91,7 @@ public class GithubService {
                     .bodyToMono(String.class)
                     .block();
         } catch (Exception e) {
-            throw new ApiRequestException();
+            return null;
         }
     }
 }
