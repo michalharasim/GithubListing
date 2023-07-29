@@ -1,6 +1,7 @@
 package com.michalharasim.githublisting;
 
 
+import com.michalharasim.githublisting.exception.ApiRequestException;
 import com.michalharasim.githublisting.exception.UserNotFoundException;
 import com.michalharasim.githublisting.exception.XMLAsHeaderException;
 import com.michalharasim.githublisting.model.GithubRepository;
@@ -52,6 +53,14 @@ public class GithubServiceTest {
         assertThrows(XMLAsHeaderException.class, () -> {
             githubService.getRepositories("randomUsernameThatDoesntExist:[c]aw'",
                     "application/xml");
+        });
+    }
+
+    @Test
+    public void testGithubService_GetAllRepositories_ApiErrorWhenRequestAPI() {
+        assertThrows(ApiRequestException.class, () -> {
+            githubService.getRepositories("randomUsernameThatDoesntExist:[c]aw'",
+                    "applicatidawjdawidjaon/xml");
         });
     }
 
