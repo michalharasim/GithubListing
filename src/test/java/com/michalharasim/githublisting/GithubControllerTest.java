@@ -4,6 +4,7 @@ import com.michalharasim.githublisting.controller.GithubController;
 import com.michalharasim.githublisting.model.GithubBranch;
 import com.michalharasim.githublisting.model.GithubRepository;
 import com.michalharasim.githublisting.service.GithubService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,9 +40,18 @@ public class GithubControllerTest {
     @MockBean
     private GithubService githubService;
 
+    @Autowired
+    private GithubController githubController;
+
     @BeforeEach
     void setup() {
         mockMvc = MockMvcBuilders.standaloneSetup(new GithubController(githubService)).build();
+    }
+
+    @Test
+    public void contextLoads() {
+        Assertions.assertNotNull(githubController);
+        Assertions.assertNotNull(githubService);
     }
 
     @Test

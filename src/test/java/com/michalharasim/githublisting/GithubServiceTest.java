@@ -7,6 +7,7 @@ import com.michalharasim.githublisting.exception.XMLAsHeaderException;
 import com.michalharasim.githublisting.model.GithubRepository;
 import com.michalharasim.githublisting.service.GithubService;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,6 +33,11 @@ public class GithubServiceTest {
 
     @Autowired
     private GithubService githubService;
+
+    @Test
+    public void contextLoads() {
+        Assertions.assertNotNull(githubService);
+    }
 
     @Test
     public void testGithubService_GetAllRepositories_ValidUsername() {
